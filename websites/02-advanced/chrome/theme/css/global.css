@@ -1,3 +1,67 @@
+:root {
+    --font-family--heading: 'Hind Siliguri', sans-serif;
+    --font-family--content: 'Montserrat', sans-serif;
+    --font-weight--light: 300;
+    --font-weight--semibold: 600;
+    --font-weight--medium: 500;
+    --color--white: #FFFFFF;
+    --color--dark-grey: #2A2A2A;
+    --color--orange: #F26430;
+    --color--green: #77BA99;
+    --color--blue:  #004DB9;
+    --color--grey: #626262;
+    --font-size--content: calc(1em * 0.75);
+}
+
+
+body {
+    margin: 0;
+}
+
+body > header {
+    background: var(--color--dark-grey);
+    display: flex;
+    flex-direction: row;
+    height: 160px;
+    align-items: center;
+    border-bottom: 40px solid var(--color--green);
+    padding: 0 140px;
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+body > header { border-bottom: 0; margin-bottom: 0;}
+
+header a {
+    color: var(--color--white);
+    text-decoration: none;
+    font-weight: var(--font-weight--light);
+    font-family: var(--font-family--heading);
+    flex: 0 0 200px;
+}
+
+.site-home {
+    font-size: 65px;
+}
+
+footer {
+    background-color: black;
+    padding: .5rem 13rem;
+    display: grid;
+    grid: auto / repeat(3, 1fr);
+    grid-gap: 1em;
+    color: white;
+}
+
+footer a {
+    color: white;
+    vertical-align: top;
+    line-height: 1.2em;
+}
+
+main {
+    min-height: 500px;
+}
+
 h1 {
     font-size: 40px;
 }
@@ -6,3 +70,4 @@ p.example {
     font-family: serif;
     font-size: 16px;
 }
+
