@@ -20,6 +20,16 @@ components:
           branch: main
         prod:
           branch: main
+  - context: /shared-components
+    kind: git
+    spec:
+      url: https://github.com/websitecd/websitecd-examples.git
+      dir: /websites/shared-components
+      envs:
+        dev:
+          branch: main
+        prod:
+          branch: main
   - context: /search
     kind: git
     spec:
