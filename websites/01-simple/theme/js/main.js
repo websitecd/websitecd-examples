@@ -1,1 +1,1 @@
-document.getElementById("text").innerHTML = "Javascript main.js is working!";
+document.getElementById("text").innerHTML = "Javascript main.js is working";
