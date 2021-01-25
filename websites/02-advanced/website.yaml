@@ -6,8 +6,8 @@ metadata:
 envs:
   dev:
     namespace: websitecd-examples
-#  prod:
-#    namespace: websitecd-examples
+  prod:
+    namespace: websitecd-examples
 
 components:
   - context: /template
@@ -27,9 +27,9 @@ components:
       dir: /websites/shared-components
       envs:
         dev:
-          branch: main
+          branch: 1.0.0
         prod:
-          branch: main
+          branch: 2.0.0
   - context: /search
     kind: git
     spec:
