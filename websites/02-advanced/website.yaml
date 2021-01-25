@@ -6,8 +6,8 @@ metadata:
 envs:
   dev:
     namespace: websitecd-examples
-  prod:
-    namespace: websitecd-examples
+#  prod:
+#    namespace: websitecd-examples
 
 components:
   - context: /search
