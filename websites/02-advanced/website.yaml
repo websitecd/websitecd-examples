@@ -10,7 +10,7 @@ envs:
 #    namespace: websitecd-examples
 
 components:
-  - context: /chrome
+  - context: /template
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
