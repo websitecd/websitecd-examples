@@ -1,0 +1,29 @@
+apiVersion: 1
+
+envs:
+  dev:
+    namespace: websitecd-simple
+  prod:
+    namespace: websitecd-simple
+
+components:
+  - context: /theme/
+    kind: git
+    spec:
+      url: https://github.com/websitecd/websitecd-examples.git
+      dir: /websites/01-simple/theme
+      envs:
+        dev:
+          branch: main
+        prod:
+          branch: main
+  - context: /
+    kind: git
+    spec:
+      url: https://github.com/websitecd/websitecd-examples.git
+      dir: /websites/01-simple/home
+      envs:
+        dev:
+          branch: main
+        prod:
+          branch: main
