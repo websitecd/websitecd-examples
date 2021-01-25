@@ -5,4 +5,5 @@ This repository contains various examples demonstrating how Webiste CD can be us
 
 | Application | Description |
 |-------------|-------------|
-| [01-simple](websites/01-simple) | Simple static website with 2 components |
+| [simple](websites/01-simple) | Simple static website with 2 components |
+| [advanced](websites/02-advanced) | Advanced example using shared components and shared layout |

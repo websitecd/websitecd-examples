@@ -14,7 +14,17 @@ components:
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
-      dir: /websites/01-advanced/chrome
+      dir: /websites/02-advanced/chrome
+      envs:
+        dev:
+          branch: main
+        prod:
+          branch: main
+  - context: /search
+    kind: git
+    spec:
+      url: https://github.com/websitecd/websitecd-examples.git
+      dir: /websites/02-advanced/search
       envs:
         dev:
           branch: main
@@ -24,7 +34,7 @@ components:
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
-      dir: /websites/01-advanced/home
+      dir: /websites/02-advanced/home
       envs:
         dev:
           branch: main
