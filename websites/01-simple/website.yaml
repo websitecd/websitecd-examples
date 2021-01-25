@@ -7,7 +7,7 @@ envs:
     namespace: websitecd-simple
 
 components:
-  - context: /theme/
+  - context: /theme
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
