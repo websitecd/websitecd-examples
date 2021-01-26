@@ -1,7 +1,6 @@
 # Website CD Examples
-Website CD Examples
 
-This repository contains various examples demonstrating how Webiste CD can be used
+This repository contains various examples demonstrating how Website CD can be used.
 
 | Application | Description |
 |-------------|-------------|
