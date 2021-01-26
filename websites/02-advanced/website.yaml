@@ -27,9 +27,9 @@ components:
       dir: /websites/shared-components
       envs:
         dev:
-          branch: 2.0.0
+          branch: "2.0.0"
         prod:
-          branch: 1.0.0
+          branch: "1.0.0"
   - context: /search
     kind: git
     spec:
