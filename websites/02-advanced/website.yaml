@@ -19,7 +19,7 @@ components:
         dev:
           branch: main
         prod:
-          branch: main
+          branch: prod
   - context: /shared-components
     kind: git
     spec:
@@ -39,7 +39,7 @@ components:
         dev:
           branch: main
         prod:
-          branch: main
+          branch: prod
   - context: /
     kind: git
     spec:
@@ -49,4 +49,4 @@ components:
         dev:
           branch: main
         prod:
-          branch: main
+          branch: prod
