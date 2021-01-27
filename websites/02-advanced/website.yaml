@@ -33,6 +33,11 @@ components:
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/search
+  - context: /search/api
+    kind: service
+    spec:
+      serviceName: searchapi
+      targetPort: 8080
   - context: /
     kind: git
     spec:
