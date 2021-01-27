@@ -13,6 +13,7 @@ envs:
   prod:
     namespace: websitecd-examples
     branch: prod
+    skipContexts: [ "/search", "/search/api" ]
 
 components:
   - context: /template
