@@ -6,8 +6,10 @@ metadata:
 envs:
   dev:
     namespace: websitecd-examples
+    branch: main
   prod:
     namespace: websitecd-examples
+    branch: prod
 
 components:
   - context: /template
@@ -15,38 +17,21 @@ components:
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/chrome
-      envs:
-        dev:
-          branch: main
-        prod:
-          branch: prod
   - context: /shared-components
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/shared-components
+      branch: "1.0.0"
       envs:
-        dev:
-          branch: "2.0.0"
-        prod:
-          branch: "1.0.0"
+        dev: "2.0.0"
   - context: /search
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/search
-      envs:
-        dev:
-          branch: main
-        prod:
-          branch: prod
   - context: /
     kind: git
     spec:
       url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/home
-      envs:
-        dev:
-          branch: main
-        prod:
-          branch: prod
