@@ -1,0 +1,44 @@
+apiVersion: 1
+
+metadata:
+  name: advanced
+
+labels:
+  appcode: WEBADV-001
+
+envs:
+  dev:
+    namespace: websitecd-examples
+    branch: main
+  prod:
+    namespace: websitecd-examples
+    branch: prod
+    skipContexts: [ "/search", "/search/api" ]
+
+components:
+  - context: /template
+    kind: git
+    spec:
+#      Note: URLs not defined - same as git url of website.yaml repo which same as
+#      url: https://github.com/websitecd/websitecd-examples.git
+      dir: /websites/02-advanced/chrome
+  - context: /shared-components
+    kind: git
+    spec:
+      dir: /websites/shared-components
+      branch: "1.0.0"
+      envs:
+        dev: "2.0.0"
+  - context: /search
+    kind: git
+    spec:
+      dir: /websites/02-advanced/search
+  - context: /search/api
+    kind: service
+    spec:
+      serviceName: searchapi
+      targetPort: 8080
+  - context: /
+    kind: git
+    spec:
+      dir: /websites/02-advanced/home

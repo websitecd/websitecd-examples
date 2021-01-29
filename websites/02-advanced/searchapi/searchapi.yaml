@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: searchapi
+  labels:
+    app: searchapi
+    website: advanced
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: searchapi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: searchapi
+  labels:
+    app: searchapi
+    website: advanced
+spec:
+  selector:
+    matchLabels:
+      app: searchapi
+  template:
+    metadata:
+      labels:
+        app: searchapi
+    spec:
+      containers:
+        - image: lkrzyzanek/helloworld-restapi:1.0
+          name: restapi1
+          ports:
+            - containerPort: 8080
