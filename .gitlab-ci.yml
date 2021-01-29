@@ -9,6 +9,13 @@ before_script:
       curl -k $IMPORT_CACERT_URL --create-dirs -o /usr/local/share/ca-certificates/gitlab-imported-ca.crt
       update-ca-certificates
     fi
+  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
+  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
+
+variables:
+  INPUT_AUTHOR: "Gitlab CI"
+  GITHUB_REPOSITORY: websitecd/websitecd-examples
+  INPUT_BUILD_DIR: build
 
 publish_prod:
   stage: deploy
@@ -17,17 +24,13 @@ publish_prod:
       - main
   tags:
     - docker
-
   image: node:12
   variables:
     # Variables needs to be INPUT_variable_name_uppercase
     # see https://github.com/actions/toolkit/blob/c9819f79d2a27c1f26ef7ea85ff44346e7d60741/packages/core/src/core.ts#L69
     INPUT_TARGET_BRANCH: prod
-    INPUT_BUILD_DIR: build
     INPUT_COMMIT_MESSAGE: Publish to prod
     INPUT_KEEP_HISTORY: "true"
-    INPUT_AUTHOR: "Gitlab CI"
-    GITHUB_REPOSITORY: websitecd/websitecd-examples
     # Defined in Settings -> CI/CD
     # GIT_DOMAIN:          # gitlab domain
     # GH_PAT:              # Format: oauth2:YOURTOKEN
@@ -36,4 +39,21 @@ publish_prod:
     - cp -r websites build
     # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
     - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
+    - node ghaction-github-pages.js
+
+publish_prod_no_history:
+  stage: deploy
+  only:
+    refs:
+      - main
+  tags:
+    - docker
+  image: node:12
+  variables:
+    INPUT_TARGET_BRANCH: prod_no_history
+    INPUT_COMMIT_MESSAGE: Publish to prod
+    INPUT_KEEP_HISTORY: "false"
+  script:
+    - mkdir build
+    - cp -r websites build
     - node ghaction-github-pages.js
