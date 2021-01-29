@@ -15,10 +15,10 @@ components:
   - context: /theme
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
+#      Note: URLs not defined - same as git url of website.yaml repo which same as
+#      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/01-simple/theme
   - context: /
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/01-simple/home

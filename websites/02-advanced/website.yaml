@@ -19,12 +19,12 @@ components:
   - context: /template
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
+#      Note: URLs not defined - same as git url of website.yaml repo which same as
+#      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/chrome
   - context: /shared-components
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/shared-components
       branch: "1.0.0"
       envs:
@@ -32,7 +32,6 @@ components:
   - context: /search
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/search
   - context: /search/api
     kind: service
@@ -42,5 +41,4 @@ components:
   - context: /
     kind: git
     spec:
-      url: https://github.com/websitecd/websitecd-examples.git
       dir: /websites/02-advanced/home
