@@ -24,6 +24,18 @@ jobs:
         with:
           target_branch: prod
           build_dir: build
-          commit_message: Deploy to prod
+          commit_message: Publish to prod
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to prod-no-history branch
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: prod-no-history
+          build_dir: build
+          commit_message: Publish to prod-no-history
+          keep_history: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
