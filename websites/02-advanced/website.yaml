@@ -14,6 +14,16 @@ envs:
     namespace: websitecd-examples
     branch: prod
     skipContexts: [ "/search", "/search/api" ]
+    deployment:
+      replicas: 2
+      httpd:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 150Mi
+          limits:
+            cpu: 500m
+            memory: 250Mi
 
 components:
   - context: /template
