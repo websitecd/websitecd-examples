@@ -5,10 +5,8 @@ labels:
 
 envs:
   dev:
-    namespace: websitecd-examples
     branch: main
   prod:
-    namespace: websitecd-examples
     branch: prod
     skipContexts: [ "/search", "/search/api" ]
     deployment:

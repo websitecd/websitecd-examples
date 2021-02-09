@@ -8,3 +8,8 @@ spec:
   dir: websites/02-advanced
 #  sslVerify: false
   webhookSecret: TOKENADVANCED
+  envs:
+    included:
+      - prod
+#    excluded:
+#      - prod
