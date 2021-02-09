@@ -8,3 +8,8 @@ spec:
   dir: websites/01-simple
 #  sslVerify: false
   webhookSecret: TOKENSIMPLE
+  envs:
+    included:
+      - *
+#    excluded:
+#      - prod
