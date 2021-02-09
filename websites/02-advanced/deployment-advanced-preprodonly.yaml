@@ -9,7 +9,5 @@ spec:
 #  sslVerify: false
   webhookSecret: TOKENADVANCED
   envs:
-    included:
+    excluded:
       - prod
-#    excluded:
-#      - prod

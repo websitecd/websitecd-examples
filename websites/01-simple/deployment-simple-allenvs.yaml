@@ -10,6 +10,6 @@ spec:
   webhookSecret: TOKENSIMPLE
   envs:
     included:
-      - *
+      - ".*"
 #    excluded:
 #      - prod
