@@ -1,22 +1,11 @@
 
-.before_publish: &before_publish
-  # If IMPORT_CACERT_URL contains URL to CA certificate performs the CA import
-  - |
-    if [[ -z $IMPORT_CACERT_URL ]]; then
-      echo "Nothing to import"
-    else
-      echo "Importing ${IMPORT_CACERT_URL}"
-      curl -k $IMPORT_CACERT_URL --create-dirs -o /usr/local/share/ca-certificates/gitlab-imported-ca.crt
-      update-ca-certificates
-    fi
-  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
-  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
-
 variables:
   INPUT_AUTHOR: "Gitlab CI"
   GITHUB_REPOSITORY: websitecd/websitecd-examples
   INPUT_BUILD_DIR: build
 
+
+# TEST website.yaml files
 test_website_configs:
   stage: test
   only:
@@ -29,6 +18,32 @@ test_website_configs:
     entrypoint: [ "" ]
   script:
     - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml $(pwd)/websites/02-advanced/website.yaml
+
+
+
+# PUBLISH to branches
+
+.prepare_cacert: &prepare_cacert
+  # If IMPORT_CACERT_URL contains URL to CA certificate performs the CA import
+  - |
+    if [[ -z $IMPORT_CACERT_URL ]]; then
+      echo "Nothing to import"
+    else
+      echo "Importing ${IMPORT_CACERT_URL}"
+      curl -k $IMPORT_CACERT_URL --create-dirs -o /usr/local/share/ca-certificates/gitlab-imported-ca.crt
+      update-ca-certificates
+    fi
+  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
+  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
+
+
+.publish: &publish
+  - mkdir build
+  - cp -r websites build
+  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
+  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
+  - node ghaction-github-pages.js
+
 
 publish_prod:
   stage: deploy
@@ -48,13 +63,9 @@ publish_prod:
     # GIT_DOMAIN:          # gitlab domain
     # GH_PAT:              # Format: oauth2:YOURTOKEN
   before_script:
-    - *before_publish
+    - *prepare_cacert
   script:
-    - mkdir build
-    - cp -r websites build
-    # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
-    - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
-    - node ghaction-github-pages.js
+    - *publish
 
 publish_prod_no_history:
   stage: deploy
@@ -69,8 +80,6 @@ publish_prod_no_history:
     INPUT_COMMIT_MESSAGE: Publish to prod
     INPUT_KEEP_HISTORY: "false"
   before_script:
-    - *before_publish
+    - *prepare_cacert
   script:
-    - mkdir build
-    - cp -r websites build
-    - node ghaction-github-pages.js
+    - *publish
