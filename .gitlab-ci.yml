@@ -1,5 +1,5 @@
 
-before_script:
+.before_publish: &before_publish
   # If IMPORT_CACERT_URL contains URL to CA certificate performs the CA import
   - |
     if [[ -z $IMPORT_CACERT_URL ]]; then
@@ -16,6 +16,19 @@ variables:
   INPUT_AUTHOR: "Gitlab CI"
   GITHUB_REPOSITORY: websitecd/websitecd-examples
   INPUT_BUILD_DIR: build
+
+test_website_configs:
+  stage: test
+  only:
+    refs:
+      - main
+  tags:
+    - docker
+  image:
+    name: quay.io/websitecd/config-validator-jvm
+    entrypoint: [ "" ]
+  script:
+    - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml
 
 publish_prod:
   stage: deploy
@@ -34,6 +47,8 @@ publish_prod:
     # Defined in Settings -> CI/CD
     # GIT_DOMAIN:          # gitlab domain
     # GH_PAT:              # Format: oauth2:YOURTOKEN
+  before_script:
+    - *before_publish
   script:
     - mkdir build
     - cp -r websites build
@@ -53,6 +68,8 @@ publish_prod_no_history:
     INPUT_TARGET_BRANCH: prod_no_history
     INPUT_COMMIT_MESSAGE: Publish to prod
     INPUT_KEEP_HISTORY: "false"
+  before_script:
+    - *before_publish
   script:
     - mkdir build
     - cp -r websites build
