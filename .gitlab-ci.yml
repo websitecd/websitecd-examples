@@ -28,8 +28,7 @@ test_website_configs:
     name: quay.io/websitecd/config-validator-jvm
     entrypoint: [ "" ]
   script:
-    - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml
-    - /deployments/run-java.sh $(pwd)/websites/02-advanced/website.yaml
+    - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml $(pwd)/websites/02-advanced/website.yaml
 
 publish_prod:
   stage: deploy
