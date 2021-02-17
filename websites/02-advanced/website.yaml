@@ -7,7 +7,7 @@ envs:
   dev:
     branch: main
   stage:
-    branch: "2.0.0"
+    branch: main
   prod:
     branch: prod
     skipContexts: [ "/search", "/search/api" ]
