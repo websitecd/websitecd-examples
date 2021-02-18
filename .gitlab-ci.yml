@@ -66,6 +66,7 @@ publish_prod:
     - *prepare_cacert
   script:
     - *publish
+  when: manual
 
 publish_prod_no_history:
   stage: deploy
@@ -83,3 +84,4 @@ publish_prod_no_history:
     - *prepare_cacert
   script:
     - *publish
+  when: manual
