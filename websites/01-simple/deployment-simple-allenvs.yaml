@@ -4,8 +4,9 @@ metadata:
   name: simple
 spec:
   gitUrl: https://github.com/websitecd/websitecd-examples.git
-  branch: main
   dir: websites/01-simple
+## Optional values:
+#  branch: main
 #  sslVerify: false
   secretToken: TOKENSIMPLE
   envs:

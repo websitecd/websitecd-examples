@@ -4,8 +4,9 @@ metadata:
   name: advanced
 spec:
   gitUrl: https://github.com/websitecd/websitecd-examples.git
-  branch: main
   dir: websites/02-advanced
+## Optional values:
+#  branch: main
 #  sslVerify: false
   secretToken: TOKENADVANCED
   envs:
