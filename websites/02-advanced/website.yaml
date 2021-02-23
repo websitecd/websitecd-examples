@@ -6,8 +6,8 @@ labels:
 envs:
   dev:
     branch: main
-  stage:
-    branch: main
+#  stage:
+#    branch: main
   prod:
     branch: prod
     skipContexts: [ "/search", "/search/api" ]
