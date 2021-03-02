@@ -1,7 +1,12 @@
-name: simple-content-okteto
+name: simple-content-dev
 command: httpd -D FOREGROUND
+
 sync:
   - theme:/var/www/html/theme/
+  # Root context needs special care - see home/.stignore
   - home:/var/www/html/
+persistentVolume:
+  enabled: false   # Volumes are disabled because they're initiated by init container
+
 forward:
  - 8080:8080
