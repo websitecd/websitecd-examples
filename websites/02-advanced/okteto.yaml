@@ -1,0 +1,15 @@
+name: advanced-content-dev
+command: httpd -D FOREGROUND
+
+sync:
+  - chrome:/var/www/html/template/
+  - ../shared-components:/var/www/html/shared-components/
+  - search:/var/www/html/search/
+  # Root context needs special care - see home/.stignore
+  - home:/var/www/html/
+persistentVolume:
+  enabled: false   # Volumes are disabled because they're initiated by init container
+
+forward:
+ - 8080:8080
+ - 8090:searchapi:8080    # has to be on other port.
