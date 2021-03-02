@@ -5,9 +5,6 @@ envs:
     branch: main
   prod:
     branch: prod
-  # Env for local development
-  okteto:
-    skipContexts: [ "/", "/theme" ]
 
 components:
   - context: /theme
