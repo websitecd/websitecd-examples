@@ -1,7 +1,7 @@
 name: simple-content-okteto
 command: httpd -D FOREGROUND
 sync:
-  - websites/01-simple/theme:/var/www/html/theme/
-  - websites/01-simple/home:/var/www/html/
+  - theme:/var/www/html/theme/
+  - home:/var/www/html/
 forward:
  - 8080:8080
