@@ -26,8 +26,8 @@ components:
   - context: /search/api
     kind: service
     spec:
-      serviceName: searchapi
-      targetPort: 8080
+      serviceName: searchapi-mongo
+      targetPort: 4000
   - context: /
     kind: git
     spec:
