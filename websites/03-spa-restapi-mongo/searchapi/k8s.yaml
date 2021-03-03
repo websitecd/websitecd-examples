@@ -34,8 +34,8 @@ spec:
         app: searchapi-mongo
     spec:
       containers:
-        - image: okteto/hello-world:node
-          name: hello-world
+        - image: websitecd/examples-03-searchapi
+          name: api
 ---
 apiVersion: v1
 kind: Service

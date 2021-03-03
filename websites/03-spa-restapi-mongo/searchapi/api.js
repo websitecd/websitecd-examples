@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Student = require('../models/student');
+const Student = require('./student');
 
 // get a list of students from the database
 router.get('/students',function(req,res,next){

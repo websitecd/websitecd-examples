@@ -7,14 +7,14 @@ const app = express();
 app.use(cors());
 
 // connect to mongodb
-mongoose.connect('mongodb://10.105.152.235/websitecd');
+mongoose.connect('mongodb://mongodb/websitecd');
 mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 
 app.use(express.json());
 // initialize routes
-app.use('/api', require('./routes/api'));
+app.use('/api', require('./api'));
 
 // error handling middleware
 app.use(function (err, req, res, next) {
