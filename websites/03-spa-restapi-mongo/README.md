@@ -8,7 +8,7 @@ Website consists Shared component (header,footer), SPA, REST API and Mongo DB
 kubectl create namespace websitecd-examples
 kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
 # REST API + Mongo
-kubectl apply  -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
+kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
 ```
 
 The website is available under [http://spa-restapi-mongo-dev-websitecd-examples.minikube.info](http://spa-restapi-mongo-dev-websitecd-examples.minikube.info/)
@@ -23,7 +23,7 @@ Install [okteto](https://okteto.com/docs/getting-started/installation).
 Start Dev container
 ```shell
 cd websites/03-spa-restapi-mongo
-okteto up --namespace websitecd-examples
+okteto up -n websitecd-examples
 ```
 
 Website is ready under `http://localhost:8080`.
@@ -34,8 +34,7 @@ Any change to all components are automatically synced to dev container.
 Start Dev container
 ```shell
 cd websites/03-spa-restapi-mongo/searchapi
-kubectl apply -f k8s.yaml -n websitecd-examples
-okteto up --namespace websitecd-examples
+okteto up -n websitecd-examples
 ```
 Now your terminal is attached to dev container and 
 ```shell
@@ -56,7 +55,7 @@ Now your terminal is your dev container in k8s.
 
 ```shell
 npm install
-nodemon index.js
+nodemon
 ```
 
 Ports are forwarded to localhost and your API is under `4000` port and mongodb under `27017`.
@@ -73,6 +72,7 @@ More info: [Okteto NodeJS Example](https://okteto.com/docs/samples/node).
 
 ```shell
 docker build -t websitecd/examples-03-searchapi .
+docker push websitecd/examples-03-searchapi
 ```
 
 
