@@ -4,7 +4,7 @@ metadata:
   name: spa-restapi-mongo
 spec:
   gitUrl: https://github.com/websitecd/websitecd-examples.git
-  dir: websites/02-spa-restapi-mongo
+  dir: websites/03-spa-restapi-mongo
 ## Optional values:
 #  branch: main
 #  sslVerify: false
