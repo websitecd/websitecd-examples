@@ -67,5 +67,5 @@ More info: [Okteto NodeJS Example](https://okteto.com/docs/samples/node).
 ## Delete website
 
 ```shell
-kubectl delete -n websitecd-examples websites.websitecd.io advanced
+kubectl delete -n websitecd-examples websites.websitecd.io spa-restapi-mongo
 ```

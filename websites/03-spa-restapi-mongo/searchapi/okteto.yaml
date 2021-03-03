@@ -8,6 +8,9 @@ forward:
   - 9229:9229
   - 27017:mongodb:27017
 resources:
+  requests:
+    cpu: "100m"
+    memory: 500Mi
   limits:
     cpu: "1"
     memory: 2Gi
