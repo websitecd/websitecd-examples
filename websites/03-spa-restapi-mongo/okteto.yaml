@@ -1,4 +1,4 @@
-name: advanced-content-dev
+name: spa-restapi-mongo-content-dev
 command: httpd -D FOREGROUND
 
 sync:
@@ -11,3 +11,8 @@ persistentVolume:
 
 forward:
  - 8080:8080
+
+resources:
+  limits:
+    cpu: "100m"
+    memory: 100Mi
