@@ -1,0 +1,13 @@
+name: searchapi-mongo
+image: okteto/node:12
+command: bash
+sync:
+  - .:/usr/src/app
+forward:
+  - 4000:4000
+  - 9229:9229
+  - 27017:mongodb:27017
+resources:
+  limits:
+    cpu: "1"
+    memory: 2Gi

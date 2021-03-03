@@ -1,0 +1,90 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: searchapi-mongo
+  labels:
+    app: searchapi-mongo
+    website: spa-restapi-mongo
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 4000
+      name: http
+  selector:
+    app: searchapi-mongo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: searchapi-mongo
+  labels:
+    app: searchapi-mongo
+    website: spa-restapi-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: searchapi-mongo
+  template:
+    metadata:
+      labels:
+        app: searchapi-mongo
+    spec:
+      containers:
+        - image: okteto/hello-world:node
+          name: hello-world
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    name: mongodb
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongodb
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-persistent-storage-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      volumes:
+        - name: mongodb-persistent-storage
+          persistentVolumeClaim:
+            claimName: mongodb-persistent-storage-claim
+      containers:
+        - name: mongodb
+          image: mongo:4.2
+          ports:
+            - containerPort: 27017
+              protocol: TCP
+          volumeMounts:
+            - name: mongodb-persistent-storage
+              mountPath: /data/db

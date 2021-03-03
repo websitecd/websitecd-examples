@@ -1,0 +1,26 @@
+{
+  "name": "searchapi",
+  "version": "1.0.0",
+  "description": "Search API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/websitecd/websitecd-examples.git"
+  },
+  "author": "Libor Krzyzanek",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/websitecd/websitecd-examples/issues"
+  },
+  "homepage": "https://github.com/websitecd/websitecd-examples#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
