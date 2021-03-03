@@ -7,7 +7,12 @@ Website consists Shared component (header,footer), SPA, REST API and Mongo DB
 ```shell
 kubectl create namespace websitecd-examples
 kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
+# REST API + Mongo
+kubectl apply  -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
 ```
+
+The website is available under [http://spa-restapi-mongo-dev-websitecd-examples.minikube.info](http://spa-restapi-mongo-dev-websitecd-examples.minikube.info/)
+
 
 ### Local Live Development by Okteto
 
@@ -63,6 +68,13 @@ curl http://localhost:4000/api/students
 ```
 
 More info: [Okteto NodeJS Example](https://okteto.com/docs/samples/node).
+
+### REST API Docker
+
+```shell
+docker build -t websitecd/examples-03-searchapi .
+```
+
 
 ## Delete website
 
