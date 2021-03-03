@@ -25,10 +25,10 @@ okteto up --namespace websitecd-examples
 ```
 
 Website is ready under `http://localhost:8080`.
-Any change in `home` and `theme` directory is automatically synced to dev container.
+Any change to all components are automatically synced to dev container.
 
 ## Delete website
 
 ```shell
-kubectl delete -n websitecd-examples websites.websitecd.io simple
+kubectl delete -n websitecd-examples websites.websitecd.io advanced
 ```
