@@ -36,6 +36,13 @@ spec:
       containers:
         - image: websitecd/examples-03-searchapi
           name: api
+          readinessProbe:
+            httpGet:
+              path: "/"
+              port: 4000
+            initialDelaySeconds: 2
+            failureThreshold: 5
+            periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service

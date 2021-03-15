@@ -23,7 +23,7 @@ components:
     kind: git
     spec:
       dir: /websites/02-advanced/search
-  - context: /api
+  - context: /search/api
     kind: service
     spec:
       serviceName: searchapi-mongo
