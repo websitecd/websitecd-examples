@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Student = require('./student');
 
+router.get('/',function(req,res,next){
+    res.send({'apis': ['/search/api/students']});
+});
+
 // get a list of students from the database
 router.get('/students',function(req,res,next){
     Student.find({}).then(function(students){
