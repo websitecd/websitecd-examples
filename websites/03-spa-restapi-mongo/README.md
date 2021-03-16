@@ -6,9 +6,10 @@ Website consists Shared component (header,footer), SPA, REST API and Mongo DB
 
 ```shell
 kubectl create namespace websitecd-examples
-kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
 # REST API + Mongo
 kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
+# Website
+kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
 ```
 
 The website is available under [http://spa-restapi-mongo-dev-websitecd-examples.minikube.info](http://spa-restapi-mongo-dev-websitecd-examples.minikube.info/)
@@ -80,4 +81,5 @@ docker push websitecd/examples-03-searchapi
 
 ```shell
 kubectl delete -n websitecd-examples websites.websitecd.io spa-restapi-mongo
+kubectl delete namespace websitecd-examples
 ```

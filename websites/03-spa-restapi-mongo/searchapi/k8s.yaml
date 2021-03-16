@@ -6,8 +6,6 @@ metadata:
   labels:
     app: searchapi-mongo
     website: spa-restapi-mongo
-  annotations:
-    dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP
   ports:
