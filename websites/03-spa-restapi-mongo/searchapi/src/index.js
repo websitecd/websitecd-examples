@@ -7,7 +7,12 @@ const app = express();
 app.use(cors());
 
 // connect to mongodb
-mongoose.connect('mongodb://mongodb/websitecd', {useNewUrlParser: true});
+mongoose.connect('mongodb://mongodb/websitecd', {useNewUrlParser: true})
+    .catch(reason => {
+        console.log("Cannot connect to DB", reason);
+        process.abort();
+    });
+
 mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
