@@ -81,4 +81,5 @@ docker push websitecd/examples-03-searchapi
 
 ```shell
 kubectl delete -n websitecd-examples websites.websitecd.io spa-restapi-mongo
+kubectl delete namespace websitecd-examples
 ```
