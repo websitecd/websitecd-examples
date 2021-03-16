@@ -7,7 +7,10 @@ const app = express();
 app.use(cors());
 
 // connect to mongodb
-mongoose.connect('mongodb://mongodb/websitecd', {useNewUrlParser: true})
+mongoose.connect('mongodb://mongodb/websitecd', {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(()=>{
+        console.log(`Connection to database established`)
+    })
     .catch(reason => {
         console.log("Cannot connect to DB", reason);
         process.abort();
