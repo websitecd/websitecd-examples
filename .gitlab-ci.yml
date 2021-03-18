@@ -1,7 +1,6 @@
 
 variables:
   INPUT_AUTHOR: "Gitlab CI"
-  GITHUB_REPOSITORY: websitecd/websitecd-examples
   INPUT_BUILD_DIR: build
 
 
@@ -14,6 +13,7 @@ test_website_configs:
   tags:
     - docker
   image:
+    # docs: https://github.com/websitecd/operator/tree/main/config-validator
     name: quay.io/websitecd/config-validator-jvm
     entrypoint: [ "" ]
   script:
