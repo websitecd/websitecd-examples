@@ -1,7 +1,9 @@
 
 variables:
+  # Shared variables for ghaction-github-pages
   INPUT_AUTHOR: "Gitlab CI"
   INPUT_BUILD_DIR: build
+  GITHUB_REPOSITORY: websitecd/websitecd-examples   # Defines the git repository name
 
 
 # TEST website.yaml files
