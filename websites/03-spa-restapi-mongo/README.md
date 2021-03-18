@@ -63,8 +63,8 @@ Ports are forwarded to localhost and your API is under `4000` port and mongodb u
 
 To use api:
 ```shell
-curl -X POST -H "Content-Type: application/json" http://localhost:4000/api/students -d '{"name":"Student 1" }'
-curl http://localhost:4000/api/students
+curl -X POST -H "Content-Type: application/json" http://localhost:4000/search/api/students -d '{"name":"Student 1" }'
+curl http://localhost:4000/search/api/students
 ```
 
 More info: [Okteto NodeJS Example](https://okteto.com/docs/samples/node).
