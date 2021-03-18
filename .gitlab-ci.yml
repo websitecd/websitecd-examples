@@ -17,7 +17,7 @@ test_website_configs:
     name: quay.io/websitecd/config-validator-jvm
     entrypoint: [ "" ]
   script:
-    - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml $(pwd)/websites/02-advanced/website.yaml
+    - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml $(pwd)/websites/02-advanced/website.yaml $(pwd)/websites/03-spa-restapi-mongo/website.yaml
 
 
 
@@ -33,15 +33,13 @@ test_website_configs:
       curl -k $IMPORT_CACERT_URL --create-dirs -o /usr/local/share/ca-certificates/gitlab-imported-ca.crt
       update-ca-certificates
     fi
-  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
-  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
 
 
 .publish: &publish
   - mkdir build
   - cp -r websites build
-  # Same way as github actions based on https://github.com/websitecd/ghaction-github-pages
-  - curl https://raw.githubusercontent.com/websitecd/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
+  # Same way as github actions based on https://github.com/crazy-max/ghaction-github-pages
+  - curl https://raw.githubusercontent.com/crazy-max/ghaction-github-pages/dev/dist/index.js > ghaction-github-pages.js
   - node ghaction-github-pages.js
 
 
@@ -60,7 +58,7 @@ publish_prod:
     INPUT_COMMIT_MESSAGE: Publish to prod
     INPUT_KEEP_HISTORY: "true"
     # Defined in Settings -> CI/CD
-    # GIT_DOMAIN:          # gitlab domain
+    # INPUT_DOMAIN:        # gitlab domain
     # GH_PAT:              # Format: oauth2:YOURTOKEN
   before_script:
     - *prepare_cacert
