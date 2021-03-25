@@ -5,14 +5,14 @@ Website consists Shared component (header,footer), SPA, REST API and Mongo DB
 ## Install website
 
 ```shell
-kubectl create namespace websitecd-examples
+kubectl create namespace spaship-examples
 # REST API + Mongo
-kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
+kubectl apply -n spaship-examples -f https://raw.githubusercontent.com/spaship/spaship-examples/main/websites/03-spa-restapi-mongo/searchapi/k8s.yaml
 # Website
-kubectl apply -n websitecd-examples -f https://raw.githubusercontent.com/websitecd/websitecd-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
+kubectl apply -n spaship-examples -f https://raw.githubusercontent.com/spaship/spaship-examples/main/websites/03-spa-restapi-mongo/deployment-preprodonly.yaml
 ```
 
-The website is available under [http://spa-restapi-mongo-dev-websitecd-examples.minikube.info](http://spa-restapi-mongo-dev-websitecd-examples.minikube.info/)
+The website is available under [http://spa-restapi-mongo-dev-spaship-examples.minikube.info](http://spa-restapi-mongo-dev-spaship-examples.minikube.info/)
 
 
 ### Local Live Development by Okteto
@@ -24,7 +24,7 @@ Install [okteto](https://okteto.com/docs/getting-started/installation).
 Start Dev container
 ```shell
 cd websites/03-spa-restapi-mongo
-okteto up -n websitecd-examples
+okteto up -n spaship-examples
 ```
 
 Website is ready under `http://localhost:8080`.
@@ -35,21 +35,21 @@ Any change to all components are automatically synced to dev container.
 Start Dev container
 ```shell
 cd websites/03-spa-restapi-mongo/searchapi
-okteto up -n websitecd-examples
+okteto up -n spaship-examples
 ```
 Now your terminal is attached to dev container and 
 ```shell
  ✓  Development container activated
  ✓  Connected to your development container
  ✓  Files synchronized
-    Namespace: websitecd-examples
+    Namespace: spaship-examples
     Name:      searchapi-mongo
     Forward:   4000 -> 4000
                9229 -> 9229
                27017 -> mongodb:27017
 
 Welcome to your development container. Happy coding!
-websitecd-examples:searchapi-mongo app>
+spaship-examples:searchapi-mongo app>
 ```
 
 Now your terminal is your dev container in k8s.
@@ -72,14 +72,14 @@ More info: [Okteto NodeJS Example](https://okteto.com/docs/samples/node).
 ### REST API Docker
 
 ```shell
-docker build -t websitecd/examples-03-searchapi .
-docker push websitecd/examples-03-searchapi
+docker build -t spaship/examples-03-searchapi .
+docker push spaship/examples-03-searchapi
 ```
 
 
 ## Delete website
 
 ```shell
-kubectl delete -n websitecd-examples websites.websitecd.io spa-restapi-mongo
-kubectl delete namespace websitecd-examples
+kubectl delete -n spaship-examples websites.spaship.io spa-restapi-mongo
+kubectl delete namespace spaship-examples
 ```

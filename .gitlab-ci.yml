@@ -3,7 +3,7 @@ variables:
   # Shared variables for ghaction-github-pages
   INPUT_AUTHOR: "Gitlab CI"
   INPUT_BUILD_DIR: build
-  GITHUB_REPOSITORY: websitecd/websitecd-examples   # Defines the git repository name
+  GITHUB_REPOSITORY: spaship/spaship-examples   # Defines the git repository name
 
 
 # TEST website.yaml files
@@ -15,8 +15,8 @@ test_website_configs:
   tags:
     - docker
   image:
-    # docs: https://github.com/websitecd/operator/tree/main/config-validator
-    name: quay.io/websitecd/config-validator-jvm
+    # docs: https://github.com/spaship/operator/tree/main/config-validator
+    name: quay.io/spaship/config-validator-jvm
     entrypoint: [ "" ]
   script:
     - /deployments/run-java.sh $(pwd)/websites/01-simple/website.yaml $(pwd)/websites/02-advanced/website.yaml $(pwd)/websites/03-spa-restapi-mongo/website.yaml
