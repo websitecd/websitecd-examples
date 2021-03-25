@@ -1,6 +1,6 @@
-# Website CD Examples
+# SPAship Examples
 
-This repository contains various examples demonstrating how Website CD can be used.
+This repository contains various examples demonstrating how SPAship Operator can be used.
 
 | Application | Description |
 |-------------|-------------|
