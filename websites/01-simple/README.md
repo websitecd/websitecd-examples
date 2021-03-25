@@ -1,4 +1,4 @@
-# Website CD Example / Simple
+# Simple Website
 
 A simple website containing two components:
 1. homepage
