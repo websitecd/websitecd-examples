@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/websitecd/websitecd-examples.git"
+    "url": "git+https://github.com/spaship/spaship-examples.git"
   },
   "author": "Libor Krzyzanek",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/websitecd/websitecd-examples/issues"
+    "url": "https://github.com/spaship/spaship-examples/issues"
   },
-  "homepage": "https://github.com/websitecd/websitecd-examples#readme",
+  "homepage": "https://github.com/spaship/spaship-examples#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
