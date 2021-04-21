@@ -9,6 +9,8 @@ spec:
 #  branch: main
 #  sslVerify: false
   secretToken: TOKENSIMPLE
+  previews: true
+  displayName: SPAship Example - Simple
   envs:
     included:
       - ".*"

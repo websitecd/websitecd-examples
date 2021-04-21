@@ -9,6 +9,8 @@ spec:
 #  branch: main
 #  sslVerify: false
   secretToken: TOKENADVANCED
+  previews: true
+  displayName: SPAship Example - Advanced
   envs:
     excluded:
       - prod

@@ -9,6 +9,8 @@ spec:
 #  branch: main
 #  sslVerify: false
   secretToken: TOKENASPARESTAPIMONGO
+  previews: true
+  displayName: SPAship Example - SPA-API-Mongo
   envs:
     excluded:
       - prod
