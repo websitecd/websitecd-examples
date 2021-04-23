@@ -97,10 +97,9 @@ deploy_review:
   tags:
     - docker
   script:
-    - export
     - echo "Deploy a review app"
   environment:
-    name: review/simple-pr-$CI_COMMIT_REF_NAME-dev
-    url: https://simple-pr-$CI_ENVIRONMENT_SLUG-dev-spaship-examples.$OPERATOR_DOMAIN
+    name: review/simple-pr-$CI_MERGE_REQUEST_IID-dev
+    url: https://simple-pr-$CI_MERGE_REQUEST_IID-dev-spaship-examples.$OPERATOR_DOMAIN
   only:
     - merge_requests
