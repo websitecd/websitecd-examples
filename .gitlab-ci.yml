@@ -67,6 +67,8 @@ publish_prod:
   script:
     - *publish
   when: manual
+  except:
+    - merge_requests
 
 publish_prod_no_history:
   stage: deploy
@@ -85,3 +87,19 @@ publish_prod_no_history:
   script:
     - *publish
   when: manual
+  except:
+    - merge_requests
+
+
+# Review Apps
+deploy_review:
+  stage: deploy
+  tags:
+    - docker
+  script:
+    - echo "Deploy a review app"
+  environment:
+    name: review/simple-pr-$CI_COMMIT_REF_NAME-dev
+    url: https://simple-pr-$CI_ENVIRONMENT_SLUG-dev-spaship-examples.$OPERATOR_DOMAIN
+  only:
+    - merge_requests
