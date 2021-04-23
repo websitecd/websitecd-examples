@@ -97,6 +97,7 @@ deploy_review:
   tags:
     - docker
   script:
+    - export
     - echo "Deploy a review app"
   environment:
     name: review/simple-pr-$CI_COMMIT_REF_NAME-dev
