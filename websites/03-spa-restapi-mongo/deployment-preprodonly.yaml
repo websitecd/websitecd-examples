@@ -1,0 +1,16 @@
+apiVersion: spaship.io/v1
+kind: Website
+metadata:
+  name: spa-restapi-mongo
+spec:
+  gitUrl: https://github.com/spaship/spaship-examples.git
+  dir: websites/03-spa-restapi-mongo
+## Optional values:
+#  branch: main
+#  sslVerify: false
+  secretToken: TOKENASPARESTAPIMONGO
+  previews: true
+  displayName: SPAship Example - SPA-API-Mongo
+  envs:
+    excluded:
+      - prod

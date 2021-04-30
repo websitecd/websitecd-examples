@@ -1,0 +1,18 @@
+name: spa-restapi-mongo-content-dev
+command: httpd -D FOREGROUND
+
+sync:
+  - ../02-advanced/chrome:/var/www/html/template/
+  - ../shared-components:/var/www/html/shared-components/
+  - ../02-advanced/search:/var/www/html/search/
+  - ../02-advanced/home:/var/www/html/
+persistentVolume:
+  enabled: false   # Volumes are disabled because they're initiated by init container
+
+forward:
+ - 8080:8080
+
+resources:
+  limits:
+    cpu: "100m"
+    memory: 100Mi

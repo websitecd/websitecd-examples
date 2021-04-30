@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Search | Example - Advanced</title>
+    <!--#include virtual="../template/includes/head.html" -->
+</head>
+<body>
+<!--#include virtual="../shared-components/nav/header.html" -->
+<main>
+    <h1>Search</h1>
+    <input id="restapiurl" name="restapiurl" value="/search/api"> <button type="button" onclick="callApi(document.getElementById('restapiurl').value)">Call API</button>
+    <br>
+    <pre id="restapi-call-result">Search Result</pre>
+</main>
+<!--#include virtual="../shared-components/nav/footer.html" -->
+<!--#include virtual="../template/includes/foot.html" -->
+<script src="search.js"></script>
+</body>
+</html>

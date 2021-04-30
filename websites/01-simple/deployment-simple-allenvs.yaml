@@ -1,0 +1,18 @@
+apiVersion: spaship.io/v1
+kind: Website
+metadata:
+  name: simple
+spec:
+  gitUrl: https://github.com/spaship/spaship-examples.git
+  dir: websites/01-simple
+## Optional values:
+#  branch: main
+#  sslVerify: false
+  secretToken: TOKENSIMPLE
+  previews: true
+  displayName: SPAship Example - Simple
+  envs:
+    included:
+      - ".*"
+#    excluded:
+#      - prod
