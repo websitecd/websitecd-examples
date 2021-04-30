@@ -10,8 +10,8 @@ variables:
 test_website_configs:
   stage: test
   only:
-    refs:
-      - main
+    - main
+    - merge_requests
   tags:
     - docker
   image:
