@@ -52,7 +52,7 @@ publish_prod:
       - main
   tags:
     - docker
-  image: node:12
+  image: node:16
   variables:
     # Variables needs to be INPUT_variable_name_uppercase
     # see https://github.com/actions/toolkit/blob/c9819f79d2a27c1f26ef7ea85ff44346e7d60741/packages/core/src/core.ts#L69
@@ -77,7 +77,7 @@ publish_prod_no_history:
       - main
   tags:
     - docker
-  image: node:12
+  image: node:16
   variables:
     INPUT_TARGET_BRANCH: prod_no_history
     INPUT_COMMIT_MESSAGE: Publish to prod
